@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Continent;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class CountryFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->country,
+            'continent_id' => fake()->numberBetween(1, Continent::count())
         ];
     }
 }
